@@ -7,8 +7,8 @@
 
 
 .navbar{
-  
-    background-color: #EEEEEE;
+    z-index: 100;
+    background-color: #EEE;
     overflow: hidden;
     position: fixed; 
     top: 0; 
@@ -136,8 +136,10 @@
 }
 
 .bg2{
-    background-color: teal;
-    height: 20%;
+    background-image: url("bg4.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size:100% ;
     
 }
 body .container{
@@ -150,14 +152,144 @@ body .container{
 .bg1-container{
     position: absolute;
     bottom: 15%;
-    color: #EEEEEE;
+    color: #EEE;
     text-align: center;
     width: 100%;
    
 }
-h1, h2{
-    font-family: 'Cormorant Garamond', serif;
+
+
+.bg2-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.bg2-info-container{
+    width: 50%;
+    height: 85%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.bg2-text-container{
+    width: 50%;
+    height: 12.5%;
+    text-align: center;
     
+
+}
+
+.bg2-text-container h3{
+    width: 70%;
+    margin:1% auto auto auto;
+
+}
+.bg2-info-card{
+
+    
+    box-shadow: 3px 3px 8px rgba(38, 38, 38, 0.2);
+    border-radius: 25px;
+    width: 35%;
+    height: 45%;
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+    position: relative;
+
+    
+}
+.bg2-info-card .infocard-title-container h4{
+    position: absolute;
+    display: none;
+    color: #eee;
+    margin-top:10%;
+}
+
+.placeholder{
+    left: -100%;
+    
+}
+.bg2-info-card:hover{
+
+    box-shadow: 6px 6px 8px 2px rgba(0,0,0,0.2);
+    transform: scale(1.025);
+
+}
+
+.infocard-title-container{
+
+    width: 70%;
+    height: 15%;
+
+    margin-top: 10%;
+   
+    /* the following three lines are only for demonstration purposes */
+    background: rgba(142, 152, 100, 0.55); 
+    
+    
+}
+
+.bg2-info-card:active > .infocard-title-container h4 {
+    display: inline;
+    animation-name: animate-infocard-title;
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards; 
+}
+
+
+@keyframes animate-infocard-title {
+    
+    from {
+        left: 0%;
+      }
+    
+      to {
+        left: 10%;
+        
+      }
+  }
+
+
+
+#info-card-1{
+    background-image: url("recipe1.png");
+    background-position: center center;
+    background-size:100% auto ;
+    background-repeat: no-repeat;
+}
+
+
+#info-card-2{
+    background-image: url("recipe2.png");
+    background-position: center center;
+    background-size:100% auto ;
+    background-repeat: no-repeat;
+}
+
+
+
+#info-card-3{
+    background-image: url("recipe3.png");
+    background-position: center center;
+    background-size:100% auto ;
+    background-repeat: no-repeat;
+}
+
+#info-card-4{
+    background-image: url("recipe4.png");
+    background-position: center center;
+    background-size:100% auto ;
+    background-repeat: no-repeat;
+}
+h1, h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: #EEE;
     margin-bottom:1em;
 }
 
@@ -167,6 +299,12 @@ h1{
 }
 h2{
     font-size: 40px;
+}
+
+h3{
+    color: #2b2e1da1;
+    font-size: 35px;
+    font-weight: bold;
 }
 
 .bg1-order{
