@@ -13,6 +13,7 @@
     position: fixed; 
     top: 0; 
     width: 100%; 
+    height:7.5vh;
 }
 .navbar .navbar-container{
     width: 95%;
@@ -132,16 +133,20 @@
     height: 100vh;
     background-repeat: no-repeat;
     background-size:100% ;
-    
+    background-blend-mode: multiply;
+    background-color: #aaa;
 }
 
 .bg2{
     background-image: url("bg4.jpg");
-    height: 100vh;
+    height: 92.5vh;
     background-repeat: no-repeat;
     background-size:100% ;
     
 }
+
+
+
 body .container{
     height: 2000px;
     align-content: center;
@@ -201,20 +206,10 @@ body .container{
     transition: all 0.2s ease-out;
     cursor: pointer;
     position: relative;
-
+    color: #EFEFEF;
     
 }
-.bg2-info-card .infocard-title-container h4{
-    position: absolute;
-    display: none;
-    color: #eee;
-    margin-top:10%;
-}
 
-.placeholder{
-    left: -100%;
-    
-}
 .bg2-info-card:hover{
 
     box-shadow: 6px 6px 8px 2px rgba(0,0,0,0.2);
@@ -224,36 +219,55 @@ body .container{
 
 .infocard-title-container{
 
-    width: 70%;
-    height: 15%;
+    width: 0%;
+    height: 3em;
+    background: rgba(142, 152, 100, 0.75);
+    position: absolute;
+    top: 0;
+    right: 0;
 
+    overflow: hidden;
+    transition: 0.2s ease;
     margin-top: 10%;
-   
-    /* the following three lines are only for demonstration purposes */
-    background: rgba(142, 152, 100, 0.55); 
+    border-radius: 25px 0 0 25px;
+}
+.infocard-title-container h4{
+
+    white-space: nowrap;
+    
+}
+.bg2-info-card:active  {
+    transform: scale(1.1);
+    box-shadow: 12px 12px 8px 2px rgba(0,0,0,0.2);
+}
+.bg2-info-card:active > .infocard-title-container  {
+    width: 70%;
+}
+
+.infocard-info-container{
+    
+    width: 0em;
+    height: 10em;
+    background: rgba(142, 152, 100, 0.75);
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    transition:  all 0.2s ease 0.2s;
+    margin-bottom: 10%;
+    border-radius: 0 25px 25px 0;
+    
+}
+.bg2 h4{
+    
+    margin: 1em;
+    overflow: hidden;
+    text-align: justify;
     
     
 }
-
-.bg2-info-card:active > .infocard-title-container h4 {
-    display: inline;
-    animation-name: animate-infocard-title;
-    animation-duration: 0.75s;
-    animation-fill-mode: forwards; 
+.bg2-info-card:active > .infocard-info-container  {
+    width: 80%;  
 }
-
-
-@keyframes animate-infocard-title {
-    
-    from {
-        left: 0%;
-      }
-    
-      to {
-        left: 10%;
-        
-      }
-  }
 
 
 
@@ -271,7 +285,6 @@ body .container{
     background-size:100% auto ;
     background-repeat: no-repeat;
 }
-
 
 
 #info-card-3{
@@ -343,8 +356,279 @@ h3{
         background-size:auto 100% ;
     }
 
-    .bg1-overlay{
-        background-blend-mode: multiply;
-        background-color: #888;
+ 
+}
+
+.bg3{
+    background-image: url("bg8.jpg");
+    height: 92.5vh;
+    background-repeat: no-repeat;
+    background-size:100%;
+    position:relative;
+    background-blend-mode: multiply;
+    background-color: #aaa;
+}
+
+.bg3-container{
+    position: absolute;
+    height: 70%;
+    width: 80%;
+    top: 15%;
+    left: 10%;
+    
+    display: flex;
+    
+}
+
+
+@keyframes tonext {
+    75% {
+      left: 0;
     }
+    95% {
+      left: 100%;
+    }
+    98% {
+      left: 100%;
+    }
+    99% {
+      left: 0;
+    }
+  }
+  
+  @keyframes tostart {
+    75% {
+      left: 0;
+    }
+    95% {
+      left: -300%;
+    }
+    98% {
+      left: -300%;
+    }
+    99% {
+      left: 0;
+    }
+  }
+  
+  @keyframes snap {
+    96% {
+      scroll-snap-align: center;
+    }
+    97% {
+      scroll-snap-align: none;
+    }
+    99% {
+      scroll-snap-align: none;
+    }
+    100% {
+      scroll-snap-align: center;
+    }
+  }
+
+  .bg3 .bg3-container ol, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .carousel-track {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow-x: scroll;
+    counter-reset: item;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+
+  .carousel-slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+
+    counter-increment: item;
+  }
+
+
+
+  .carousel-slide:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-40%,70px);
+    color: #fff;
+    font-size: 2em;
+  }
+  
+  .carousel-snapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+    
+  }
+
+  @media (hover: hover) {
+    .carousel-snapper {
+      animation-name: tonext, snap;
+      animation-timing-function: ease;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+    }
+  
+    .carousel-slide:last-child .carousel-snapper {
+      animation-name: tostart, snap;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-snapper {
+      animation-name: none;
+    }
+  }
+
+.bg3-container:hover .carousel-snapper,
+.bg3-container:focus-within .carousel-snapper {
+  animation-name: none;
+}
+  
+.carousel-nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
+
+.carousel-nav-list,
+.carousel-nav-item {
+  display: inline-block;
+}
+
+.carousel-nav-button {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #eee;
+  background-clip: content-box;
+  border: 0.25rem solid transparent;
+  border-radius: 50%;
+  font-size: 0;
+  transition: transform 0.1s;
+}
+
+.carousel-nav-button:active {
+  background-color: rgb(65, 92, 44);
+}
+.bg3-container::before,
+.bg3-container::after,
+.carousel-previous-slide,
+.carousel-next-slide {
+  position: absolute;
+  top: 45%;
+  
+  width: 2.5rem;
+  height: 2.5rem;
+  
+  
+}
+
+.bg3-container::before,
+.carousel-previous-slide {
+  left: 15%;
+}
+
+.bg3-container::after,
+.carousel-next-slide {
+  right: 15%;
+}
+
+.bg3-container::before,
+.bg3-container::after {
+  content: '';
+  
+  background-color: transparent;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  line-height: 4rem;
+  pointer-events: none;
+}
+
+.bg3-container::before {
+  background-image: url("left-arrow.png");
+}
+
+.bg3-container::after {
+  background-image: url("right-arrow.png");
+}
+
+
+
+.bg3-container {
+    
+    overflow: hidden;
+    scrollbar-color: transparent transparent; /* thumb and track color */
+    scrollbar-width: 0px;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    
+  
+  
+  }
+  ::-webkit-scrollbar-track {
+    display: none;
+}
+* { 
+    scrollbar-width: none; 
+}
+:root:not(:hover) { 
+    scrollbar-color: transparent transparent !important; 
+}
+:root { 
+    scrollbar-color: #666 #383838 !important; 
+}
+
+.carousel-text-container{
+  height: 100%;
+  margin-left: 25%;
+  margin-right: 25%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.carousel-content{
+  font-size: 45px;
+  font-family: 'Cormorant Garamond', serif;
+  color: #EEE;
+  text-align: center;
+  
+}
+
+.carousel-content-author{
+  margin-top: 10%;
+  font-size: 30px;
+  font-family: 'Cormorant Garamond', serif;
+  color: #EEE;
+  text-align: center;
+}
+.carousel-content-emphasis{
+  color: rgb(39, 59, 19);
+  font-weight: bold;
+}
+
+#carousel-nav-button-1{
+  
+}
+
+.carousel-nav-button-active{
+  background-color: rgb(65, 92, 44);
 }
