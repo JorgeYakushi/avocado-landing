@@ -11,7 +11,7 @@
   <meta name="author" content="SitePoint">
 
   <link rel="stylesheet" href="styles.css">
-  <script src="scripts.js"></script>
+  <script src="scripts.js" async></script>
   <nav class="navbar">
     <div class="navbar-container">
       <ul class="navbar-menu" id="menuNav">
@@ -93,87 +93,100 @@
     
     <div class="bg3">
       <div class="bg3-container">
-       <ul class="carousel-track">
-         <li id="carousel-slide-1" tabindex="0" class="carousel-slide">
-           <div class="carousel-snapper">
-             <div class="carousel-text-container">
-               <h6 class="carousel-content">I suppose there are people who can pass up 
-                 <span class="carousel-content carousel-content-emphasis">
-                  free guacamole
-                  </span>, but they're either allergic to 
-                    <span class="carousel-content carousel-content-emphasis">
+        <div class="carousel-wrapper">
+          <div class="carousel-title">What others are saying about <span class="carousel-content carousel-quote-emphasis">avocados</span></div>
+          <div class="carousel">
+
+            <div class="carousel__photo initial">
+              <h6 class="carousel-quote">
+                If you have nothing but love for your 
+                <span class="carousel-content carousel-quote-emphasis">
+                  avocados,
+                </span> and you take joy in turning them into <span class="carousel-content carousel-quote-emphasis">guacamole,</span> 
+                all you need is someone to <span class="carousel-content carousel-quote-emphasis">share it with.</span>
+              </h6>
+              <h6 class="carousel-quote-author">
+                - Jason Mraz -
+              </h6>
+            </div>
+            <div class="carousel__photo">
+              <h6 class="carousel-quote">
+                I love things that are <span class="carousel-content carousel-quote-emphasis">indescribable, </span>
+                like the taste of an <span class="carousel-content carousel-quote-emphasis">avocado</span> or the smell of a gardenia.
+              </h6>
+              <h6 class="carousel-quote-author">
+                - Barbra Streisand -
+              </h6>
+            </div>
+            <div class="carousel__photo">
+              <h6 class="carousel-quote">
+                What's your <span class="carousel-content carousel-quote-emphasis">avocado?</span>
+              </h6>
+              <h6 class="carousel-quote-author">
+                - Stacie Zinn Roberts -
+              </h6>
+            </div>
+            <div class="carousel__photo">
+              <h6 class="carousel-quote">
+                I suppose there are people who can pass up
+                 <span class="carousel-content carousel-quote-emphasis">
+                  free guacamole,</span> but they're either allergic to 
+                    <span class="carousel-content carousel-quote-emphasis">
                       avocado
                     </span> 
                     or too joyless to live.
-               </h6>
-               <h6 class="carousel-content-author">
-                 - Frank Bruni -
-               </h6>
-              </div>
-             
-             <a href="#carousel-slide-5" class="carousel-previous-slide"></a>
-             <a href="#carousel-slide-2" class="carousel-next-slide"></a>
-           </div>
-         </li>
-         <li id="carousel-slide-2" tabindex="0" class="carousel-slide">
-          <div class="carousel-snapper">
-            <a href="#carousel-slide-1" class="carousel-previous-slide"></a>
-            <a href="#carousel-slide-3" class="carousel-next-slide"></a>
+              </h6>
+              <h6 class="carousel-quote-author">- Frank Bruni -</h6>
+            </div>
+            <div class="carousel__photo">
+              <h6 class="carousel-quote">
+                And <span class="carousel-content carousel-quote-emphasis">perfect happiness?</span> 
+                Man, that's a... the pool is about 92 degrees, the Jacuzzi is about 102 and an 
+                <span class="carousel-content carousel-quote-emphasis">avocado farm.</span> 
+              </h6>
+              <h6 class="carousel-quote-author">
+                - Jamie Foxx -
+              </h6>
+            </div>
+            <div class="carousel-nav-button-container">
+              <a class="carousel-nav-button carousel-nav-button-active" onclick="colorCarouselButton(0); moveCarouselFromNavButton(0,0);"></a> 
+              <a class="carousel-nav-button" onclick="colorCarouselButton(1); moveCarouselFromNavButton(1,1);"></a> 
+              <a class="carousel-nav-button" onclick="colorCarouselButton(2); moveCarouselFromNavButton(2,2);"></a> 
+              <a class="carousel-nav-button" onclick="colorCarouselButton(3); moveCarouselFromNavButton(3,3);"></a> 
+              <a class="carousel-nav-button" onclick="colorCarouselButton(4); moveCarouselFromNavButton(4,4);"></a> 
+            </div>
+            <div class="carousel__button--next"></div>
+            <div class="carousel__button--prev"></div>  
           </div>
-        </li>
-        <li id="carousel-slide-3" tabindex="0" class="carousel-slide">
-          <div class="carousel-snapper">
-            <a href="#carousel-slide-2" class="carousel-previous-slide"></a>
-            <a href="#carousel-slide-4" class="carousel-next-slide"></a>
-          </div>
-        </li>
-        <li id="carousel-slide-4" tabindex="0" class="carousel-slide">
-          <div class="carousel-snapper">
-            <a href="#carousel-slide-3" class="carousel-previous-slide"></a>
-            <a href="#carousel-slide-5" class="carousel-next-slide"></a>
-          </div>
-        </li>
-        <li id="carousel-slide-5" tabindex="0" class="carousel-slide">
-          <div class="carousel-snapper">
-            <a href="#carousel-slide-4" class="carousel-previous-slide"></a>
-            <a href="#carousel-slide-1" class="carousel-next-slide"></a>
-          </div>
-        </li>
-       </ul>
-       <aside class="carousel-nav">
-         <ul class="carousel-nav-list"  id="carousel-nav-list">
-           <li class="carousel-nav-item">
-            <a href="#carousel-slide-1" class="carousel-nav-button carousel-nav-button-active" 
-            onclick="colorCarouselNavButtons()" id ="carousel-nav-item-1" ></a>
-           </li>
-           <li class="carousel-nav-item">
-            <a href="#carousel-slide-2" class="carousel-nav-button"
-            onclick="colorCarouselNavButtons()" id ="carousel-nav-item-2"></a>
-          </li>
-          <li class="carousel-nav-item">
-            <a href="#carousel-slide-3" class="carousel-nav-button"
-            onclick="colorCarouselNavButtons()" id ="carousel-nav-item-3"></a>
-          </li>
-          <li class="carousel-nav-item">
-            <a href="#carousel-slide-4" class="carousel-nav-button"
-            onclick="colorCarouselNavButtons()" id ="carousel-nav-item-4"></a>
-          </li>
-          <li class="carousel-nav-item">
-            <a href="#carousel-slide-5" class="carousel-nav-button"
-            onclick="colorCarouselNavButtons()" id ="carousel-nav-item-5"></a>
-          </li>
-         </ul>
-       </aside>
-        
+        </div>
       </div>
-
-
     </div>
     <div class="bg4"> 
-
-
-  </div>
+      <div class="bg4-container">
+        <div class="form-container">
+          <div class="form-text">
+            Join our mailing list to get constant avocado-related news and information:
+          </div>
+          <form class="form-inputs">
+            <input type="text" class="form-name">
+            <br>
+            <input type="text">
+            <br>
+            <input type="submit">
+          </form>
+        </div>
+        <div class="cta-container">
+          <div class="cta-title">
+            <div>Join the avocado hype. Get it when its ripe!</div>
+          </div>
+          <div class="cta-description">Learn how to cultivate and care for your own avocados!</div>
+          <div class="cta-button">
+            <button>START NOW</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 
-<footer></footer>
+<footer>social media - other things - contact info - credits</footer>
 </html>
