@@ -44,18 +44,23 @@ function colorCarouselNavButtons() {
         case "":
         case "#carousel-slide-1":
             newAnchor = items[0].getElementsByTagName("a");
+            newAnchor.classList.contains("carousel-nav-button-active");
         break;
         case "#carousel-slide-2":
             newAnchor = items[1].getElementsByTagName("a");
+            newAnchor.classList.contains("carousel-nav-button-active");
         break;
         case "#carousel-slide-3":
             newAnchor = items[2].getElementsByTagName("a");
+            newAnchor.classList.contains("carousel-nav-button-active");
         break;
         case "#carousel-slide-4":
             newAnchor = items[3].getElementsByTagName("a");
+            newAnchor.classList.contains("carousel-nav-button-active");
         break;
         case "#carousel-slide-5":
             newAnchor = items[4].getElementsByTagName("a");
+            newAnchor.classList.contains("carousel-nav-button-active");
         break;
 
     }
