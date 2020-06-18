@@ -148,7 +148,7 @@
 
 
 body .container{
-    height: 2000px;
+    height: 377.5vh;
     align-content: center;
 }
 
@@ -422,6 +422,7 @@ h3{
 .carousel__photo.prev,
 .carousel__photo.next {
   z-index: 800;
+
 }.carousel__photo.prev {
   transform: translateX(-100%); /* Move 'prev' item to the left */
 }.carousel__photo.next {
@@ -438,7 +439,7 @@ h3{
   border-width: 0 8px 8px 0;
   display: inline-block;
   z-index: 1001; /* Sit on top of everything */
-
+  cursor: pointer;
 }
 
 
@@ -542,7 +543,7 @@ h3{
   height:100%;
 }
 .cta-container{
-  background-color:rgba(77, 94, 56, 0.5);
+  background-color:rgba(9, 11, 88, 0.5);
   
   width: 60%;
   height:100%;
@@ -559,6 +560,41 @@ h3{
 footer{
   background-color: #eee;
   height: 17.5vh;
-  position:relative;
 
 }
+
+#go-to-top-arrow{
+    border: solid rgba(77, 94, 56, 0.9);
+    border-width: 0 6px 6px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    z-index: 1000000000000000;
+    display: nsone; 
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    background-color: transparent; 
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+    animation: bouncingArrow 0.3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+#go-to-top-arrow:hover{
+
+    width: 1.75em;
+    height: 1.75em;
+  }
+
+.go-to-top-arrow-alt{
+    border-color: #ddd!important;
+}
+
+@keyframes bouncingArrow {
+    from { bottom: 30px;    }
+    to   { bottom: 33px; }
+  }

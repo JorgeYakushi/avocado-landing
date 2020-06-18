@@ -139,3 +139,68 @@ function moveCarouselFromNavButton(start, end){
         moveCarouselTo(start);
     }
 }
+
+
+const buttonGoToTop = document.getElementById("go-to-top-arrow");
+const bg2 = document.getElementById("bg2");
+const bg3 = document.getElementById("bg3");
+const bg4 = document.getElementById("bg4");
+const footer = document.getElementById("footer");
+const sections = document.querySelectorAll(".section");
+console.log(sections);
+const bgOptions = {
+  //threshold: 0.06
+  rootMargin: "-50px"
+ 
+};
+
+
+const bgObserver = new IntersectionObserver(function
+  (
+    entries,
+    bgObserver
+  ){
+    entries.forEach(entry => {
+      let sectionIntersected = entry.target.id
+      if (sectionIntersected == "footer"){
+        if(entry.isIntersecting){
+          buttonGoToTop.classList.remove("go-to-top-arrow-alt")
+        }else{
+          buttonGoToTop.classList.add("go-to-top-arrow-alt")
+        }
+      } else if (sectionIntersected == "bg4"){
+        if(entry.isIntersecting){
+          buttonGoToTop.classList.add("go-to-top-arrow-alt")
+        }else{
+          buttonGoToTop.classList.remove("go-to-top-arrow-alt")
+        }
+      } 
+    });  }, bgOptions);
+
+
+sections.forEach(section => {
+  bgObserver.observe(section);
+});
+
+console.log(bgObserver.takeRecords());
+window.onscroll = function() {
+  scrollFunction()
+};
+
+function scrollFunction() {
+  let scrollNormal = document.body.scrollTop;
+  let scrollOther = document.documentElement.scrollTop;
+
+  if (scrollNormal > 20 || scrollOther > 20) {
+    buttonGoToTop.style.display = "block";
+    
+  } else {
+    buttonGoToTop.style.display = "none";
+  }
+}
+
+function goToTop() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+} 
