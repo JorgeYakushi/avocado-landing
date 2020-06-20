@@ -1,0 +1,155 @@
+/* general */
+:root{
+    --color-text: #eee;
+    --color-primary: #343f1f   ;
+    --color-secondary: red;
+    --color-mask: #777;
+    --color-accent: purple;
+    --ff-primary: 'Roboto', sans-serif;
+    --ff-alt: 'Enriqueta', serif;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+html{
+    font-family: var(--ff-primary);
+    color: var(--color-primary);
+    box-sizing: border-box;
+    
+}
+a{
+    text-decoration: none;
+}
+/* typography */
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+h1{
+    font-size: 2rem;
+    font-family: var(--ff-alt);
+    color: var(--color-text);
+}
+
+/* useful */
+
+.hidden{
+    display: none;
+}
+
+.block--displayed{
+    display: block;
+}
+
+/* navbar */
+
+nav{
+    
+    background-color: transparent;
+}
+
+.nav__title{
+    position: absolute;
+    top: 0.5rem;
+    left: 1.5rem;
+}
+
+.nav__button__group{
+    position: fixed;
+    display: flex;
+    list-style: none;
+    margin: 0 1rem 0;
+    padding: 0;
+    top: 1em;
+    right: 1em;
+}
+.nav__button--bars__container{
+    height: 28px;
+    width: 28px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* background-color: var(--color-primary); */
+}
+.nav__button--bars__container:active{
+    background-color: red;
+}
+.nav__button--bars, .nav__button--bars::before, .nav__button--bars::after{
+    background: var(--color-text);
+    display: inline-block;
+    height: 2px;
+    width: 18px;
+    
+}
+.nav__button--bars{
+    position: relative;
+    margin-left: 5px;
+}
+
+.nav__button--bars::before, .nav__button--bars::after{
+    content: "";
+    position: absolute;
+}
+
+.nav__button--bars::before{
+    top: 5px;
+ 
+}
+
+.nav__button--bars::after{
+    top: -5px;
+
+}
+
+/* hero */
+
+.hero__container{
+    background-image: url("/img/bg1\ small.png");
+    background-repeat: no-repeat;
+    background-position: 53.5% 55%;
+    background-color: var(--color-mask);
+    background-blend-mode: multiply;
+    min-height: 100vh;
+    
+}
+.hero__content__container{
+    position: absolute;
+    height: 50%;
+    width: 70%;
+    top: 30%;
+    left: 20%;
+    color: var(--color-text);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+}
+.hero__container__title{
+    width: 100%;
+    font-size: 3rem;
+    
+}
+
+.hero__container__subtitle{
+    width: 100%;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.hero__container__btn{
+    background-color: var(--color-text);
+    color: var(--color-primary);
+    display:inline-block;
+    border-radius: 28px;
+    border: 1px solid transparent ;
+    width: 10rem; 
+    margin-top:1rem;
+    height: 2.5rem;
+    position: relative;
+    left: -7%;
+    padding: 0.5rem;
+    font-weight: 700;
+    text-align: center;
+
+}
+
