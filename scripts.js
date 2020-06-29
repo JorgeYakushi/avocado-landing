@@ -26,3 +26,32 @@ const cardObserver = new IntersectionObserver(function (entries, cardObserver) {
 cardObserver.observe(recipeCard);
 
 var counter = 0;
+let cards = document.getElementsByClassName("card");
+
+function restartAccordion() {
+  for (let i = 0; i < cards.length; i++) {
+    if (i == 0) {
+      cards[i].style.top = "0rem";
+    } else {
+      cards[i].style.top = "3rem";
+    }
+  }
+}
+
+function recipeAccordion(index) {
+  restartAccordion();
+  let firstCard = document.getElementById("card-1");
+
+  let idActualCard = "card-" + index;
+  let idNextCard = "card-" + (index + 1);
+  let cardID = document.getElementById(idActualCard);
+  let nextCardID = document.getElementById(idNextCard);
+
+  if (index > 1 && index < 4) {
+    console.log(index);
+    cardID.style.top = "3rem";
+    nextCardID.style.top = "16rem";
+  } else if (index == 1) {
+    nextCardID.style.top = "16rem";
+  }
+}

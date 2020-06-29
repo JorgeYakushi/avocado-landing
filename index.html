@@ -50,8 +50,8 @@
           <h2>Experience the avocado-goodness in multiple ways!</h2>
         </header>
         <div class="card-group">
-          <div class="card" id="card-1">
-            <div class="card--body">test test test</div>
+          <div class="card card--top" onclick="recipeAccordion(1); event.stopPropagation();" id="card-1">
+            <img src="img/recipe1.png" class=""></img>
             <div class="card-title">
               <h3>Stuffed Avocado</h3>
             </div>
@@ -61,22 +61,42 @@
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </h4>
             </div>
+            <div class="card" onclick="recipeAccordion(2); event.stopPropagation();"  id="card-2">
+              <img src="img/recipe2.png" class=""></img>
+              <div class="card-title">
+                <h3>Avocado Tacos</h3>
+              </div>
+              <div class="card-subtitle">
+                <h4>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </h4>
+              </div>
+              <div class="card"  onclick="recipeAccordion(3); event.stopPropagation();" id="card-3">
+                <img src="img/recipe3.png" class=""></img>
+                <div class="card-title"><h3>Avocado Toast</h3></div>
+                <div class="card-subtitle">
+                  <h4>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </h4>
+                </div>
+                <div class="card card--bottom" onclick="recipeAccordion(4); event.stopPropagation();"  id="card-4">
+                  <img src="img/recipe4.png" class=""></img>
+                  <div class="card-title"><h3>California Rolls</h3></div>
+                  <div class="card-subtitle">
+                    <h4>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                      eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <!-- <div class="card">
-                    <div class="card-title"><h3>Avocado Tacos</h3></div>
-                <div class="card-subtitle">
-<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </h4>
-                </div></div>
-                <div class="card">
-                    <div class="card-title"><h3>Avocado Toast</h3></div>
-                <div class="card-subtitle">
-<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </h4>
-                </div></div>
-                <div class="card">
-                    <div class="card-title"><h3>California Rolls</h3></div>
-                <div class="card-subtitle">
-<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </h4>
-                </div></div> -->
+          
+          
+          
         </div>
       </div>
     </section>

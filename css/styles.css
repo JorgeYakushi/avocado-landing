@@ -161,85 +161,79 @@ nav {
   background-image: url("/img/bg2\ small.png");
   background-repeat: no-repeat;
   background-position: 75% 50%;
-
   height: 100vh;
 }
-
 .recipes__container .section-title {
+  padding-top: 2rem;
+}
+.recipes__container .section-title h2 {
   margin-left: auto;
   margin-right: auto;
-  padding-top: 3rem;
   font-size: 1.25rem;
   width: 85%;
+  background-color: rgba(var(--color-primary-rgb), 0.66);
+  color: var(--color-text);
+  border-radius: 15px;
+  padding: 1rem;
 }
 
 .card-group {
   width: 15rem;
-  height: 30rem;
+  height: 25rem;
   margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
-  background-blend-mode: multiply;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 6px 6px 9px rgba(38, 38, 38, 1);
 }
 
 .card {
-  box-shadow: 3px 3px 8px rgba(38, 38, 38, 0.5);
-  height: 20rem;
-  border-radius: 25px;
-  position: relative;
-}
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 3px 3px 8px rgba(38, 38, 38, 0.5);
-}
-.card:active > .card-title,
-.card:active > .card-subtitle {
-  width: 12rem;
-}
-#card-1 {
-  background-image: url("/img/recipe1.png");
-  background-position: center center;
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-}
-.card--body {
-  position: absolute;
-  transform: translate3d(0px, 10px, 0px);
-}
-.card-title,
-.card-subtitle {
-  width: 0rem;
-  background: rgba(var(--color-primary-rgb), 0.66);
-  position: absolute;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: var(--color-text);
-}
-.card-title {
   height: 3rem;
-  top: 2rem;
-  right: 0;
-  border-radius: 25px 0 0 25px;
-  transition: 0.2s ease;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  top: 3rem;
+  box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.5);
 }
 
-.card-title h3 {
-  margin-left: 1rem;
-  white-space: nowrap;
-}
-.card-subtitle {
-  height: 11rem;
-  top: 7rem;
-  border-radius: 0 25px 25px 0;
-  transition: all 0.2s ease 0.2s;
+#card-1 {
+  top: 0rem;
 }
 
-.card-subtitle h4 {
-  margin-right: 1rem;
+#card-2 {
+  top: 16rem;
 }
 
+.card img {
+  width: 100%;
+}
+
+.card > .card-title {
+  position: absolute;
+  top: 1rem;
+  width: 60%;
+  margin-left: 20%;
+  text-align: center;
+  background-color: rgba(var(--color-primary-rgb), 0.66);
+  color: var(--color-text);
+  border-radius: 15px;
+  padding: 0.2rem;
+  font-size: 0.8rem;
+}
+
+.card > .card-subtitle {
+  position: absolute;
+  top: 9rem;
+  width: 80%;
+  margin-left: 10%;
+  text-align: left;
+  background-color: rgba(var(--color-primary-rgb), 0.66);
+  color: var(--color-text);
+  border-radius: 15px;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+}
 @media (orientation: landscape) {
   .recipes__container {
     position: relative;
