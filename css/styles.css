@@ -18,8 +18,11 @@
 }
 html {
   font-family: var(--ff-primary);
-  color: var(--color-primary);
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
 }
 a {
   text-decoration: none;
@@ -35,7 +38,6 @@ h4 {
 h1 {
   font-size: 2rem;
   font-family: var(--ff-alt);
-  color: var(--color-text);
 }
 
 /* useful */
@@ -51,34 +53,49 @@ h1 {
 /* navbar */
 
 nav {
-  background-color: transparent;
-}
-
-.nav__title {
-  position: absolute;
-  top: 0.5rem;
-  left: 1.5rem;
-}
-
-.nav__button__group {
   position: fixed;
-  display: flex;
-  list-style: none;
-  margin: 0 1rem 0;
-  padding: 0;
-  top: 1em;
-  right: 1em;
+  top: 0;
+  height: 4rem;
+  width: 100vw;
+  z-index: 100;
 }
+
+.nav--scrolled {
+  background-color: var(--color-text);
+  box-shadow: 0 4px 6px -6px #222;
+  color: var(--color-primary) !important;
+}
+
+.nav__container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+.nav__container--open {
+  overflow: visible;
+}
+.nav__title {
+  padding-left: 1rem;
+}
+
 .nav__button--bars__container {
-  height: 28px;
-  width: 28px;
+  height: 100%;
   border-radius: 5px;
   cursor: pointer;
+  position: relative;
   /* background-color: var(--color-primary); */
 }
-.nav__button--bars__container:active {
-  background-color: red;
+.nav__button--bars__container a {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
 }
+
 .nav__button--bars,
 .nav__button--bars::before,
 .nav__button--bars::after {
@@ -87,6 +104,13 @@ nav {
   height: 2px;
   width: 18px;
 }
+
+.nav__button--bars--scrolled,
+.nav__button--bars--scrolled::before,
+.nav__button--bars--scrolled::after {
+  background: var(--color-primary);
+}
+
 .nav__button--bars {
   position: relative;
   margin-left: 5px;
@@ -104,6 +128,26 @@ nav {
 
 .nav__button--bars::after {
   top: -5px;
+}
+
+.nav__button__group {
+  display: flex;
+  flex-flow: column nowrap;
+  list-style: none;
+  text-decoration: none;
+  width: 100%;
+  background-color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__button {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.nav__button a {
+  color: inherit;
 }
 
 /* hero */
@@ -164,7 +208,7 @@ nav {
   height: 100vh;
 }
 .recipes__container .section-title {
-  padding-top: 2rem;
+  padding-top: 6rem;
 }
 .recipes__container .section-title h2 {
   margin-left: auto;
