@@ -1,206 +1,160 @@
-function toggleMenu() {
-    let menu = document.getElementById("menuNav")
-    let menuItem = document.getElementsByClassName("menu-item")
-    if (menu.classList.contains("active")){
-        menu.classList.remove("active")
-        toggleOnOff(menuItem, "toggleOff")
-        console.log("has")
-    }else{
-        menu.classList.add("active")
-        toggleOnOff(menuItem, "toggleOn")
-    }
-    console.log(menuItem)
- 
-  } 
+const remInPx = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
-function toggleOnOff(arr, status){
-    for(let i = 0; i < arr.length; i++){
-        if(status == "toggleOn"){
-            arr[i].classList.add("active")
-        } else{
-            arr[i].classList.remove("active")
-        }
-        
-    }
-}
+const header = document.getElementsByClassName("nav__title__group")[0];
+const sections = document.querySelectorAll("section");
+const navBarList = document.getElementsByClassName("nav__button__group")[0];
+const navObsMarginTop = "-" + remInPx * 3 + "px 0px 0px 0px";
 
+const navHamburgerBars = document.getElementsByClassName(
+  "nav__button--bars"
+)[0];
+const navObsOptions = {
+  rootMargin: navObsMarginTop,
+};
 
-    var itemClassName = "carousel__photo";
-    items = document.getElementsByClassName(itemClassName),
-    totalItems = items.length,
-    slide = 0,
-    moving = true;
-
-   // Set classes
-function setInitialClasses() {
-    // Targets the previous, current, and next items
-    // This assumes there are at least three items.  items[totalItems - 1].classList.add("prev");
-    items[0].classList.add("active");
-    items[1].classList.add("next");
-  }// Set event listeners
-  function setEventListeners() {
-    var next = document.getElementsByClassName('carousel__button--next')[0],
-        prev = document.getElementsByClassName('carousel__button--prev')[0];  next.addEventListener('click', moveNext);
-    prev.addEventListener('click', movePrev);
-  }
-
- // Next navigation handler
-function moveNext() {  // Check if moving
-  if (!moving) {    // If it's the last slide, reset to 0, else +1
-    if (slide === (totalItems - 1)) {
-      slide = 0;
+const navObserver = new IntersectionObserver(function (entries, navObserver) {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      header.classList.add("nav--scrolled");
+      navHamburgerBars.classList.add("nav__button--bars--scrolled");
     } else {
-      slide++;
-    }    // Move carousel to updated slide
-    moveCarouselTo(slide);
-  }
-}// Previous navigation handler
-function movePrev() {  // Check if moving
-  if (!moving) {    // If it's the first slide, set as the last slide, else -1
-    if (slide === 0) {
-      slide = (totalItems - 1);
-    } else {
-      slide--;
+      header.classList.remove("nav--scrolled");
+      navHamburgerBars.classList.remove("nav__button--bars--scrolled");
     }
-          
-    // Move carousel to updated slide
-    moveCarouselTo(slide);
+  });
+}, navObsOptions);
+
+navObserver.observe(sections[0]);
+
+function toggleNavBar() {
+  if (navBarList.classList.contains("nav__button__group--toggled")) {
+    navBarList.classList.remove("nav__button__group--toggled");
+  } else {
+    navBarList.classList.add("nav__button__group--toggled");
+  }
+}
+var counter = 0;
+let cards = document.getElementsByClassName("card");
+
+function restartAccordion() {
+  for (let i = 0; i < cards.length; i++) {
+    if (i == 0) {
+      cards[i].style.top = "0rem";
+    } else {
+      cards[i].style.top = "3rem";
+    }
   }
 }
 
-function disableInteraction() {  // Set 'moving' to true for the same duration as our transition.
-// (0.5s = 500ms)
+function recipeAccordion(index) {
+  restartAccordion();
+  let idActualCard = "card-" + index;
+  let idNextCard = "card-" + (index + 1);
+  let cardID = document.getElementById(idActualCard);
+  let nextCardID = document.getElementById(idNextCard);
 
-moving = true;  // setTimeout runs its function once after the given time
-setTimeout(function(){
-  moving = false
-}, 500);
+  if (index > 1 && index < 4) {
+    console.log(index);
+    cardID.style.top = "3rem";
+    nextCardID.style.top = "16rem";
+  } else if (index == 1) {
+    nextCardID.style.top = "16rem";
+  }
 }
 
-function moveCarouselTo(slide) {  // Check if carousel is moving, if not, allow interaction
-    console.log(slide);
-    if(!moving) {    // temporarily disable interactivity
-      disableInteraction();    // Update the "old" adjacent slides with "new" ones
-      var newPrevious = slide - 1,
-          newNext = slide + 1,
-          oldPrevious = slide - 2,
-          oldNext = slide + 2;    // Test if carousel has more than three items
-      if ((totalItems - 1) > 3) {      // Checks and updates if the new slides are out of bounds
-        if (newPrevious <= 0) {
-          oldPrevious = (totalItems - 1);
-        } else if (newNext >= (totalItems - 1)){
-          oldNext = 0;
-        }      // Checks and updates if slide is at the beginning/end
-        if (slide === 0) {
-          newPrevious = (totalItems - 1);
-          oldPrevious = (totalItems - 2);
-          oldNext = (slide + 1);
-        } else if (slide === (totalItems -1)) {
-          newPrevious = (slide - 1);
-          newNext = 0;
-          oldNext = 1;
-        }      // Now we've worked out where we are and where we're going, 
-        // by adding/removing classes we'll trigger the transitions.      // Reset old next/prev elements to default classes
-        items[oldPrevious].className = itemClassName;
-        items[oldNext].className = itemClassName;      // Add new classes
-        items[newPrevious].className = itemClassName + " prev";
-        items[slide].className = itemClassName + " active";
-        items[newNext].className = itemClassName + " next";
-        colorCarouselButton(slide);
+// carousel
+let carouselNavPosition = 1;
+let carouselNavNewPosition;
+let carouselNavNext = 2;
+let carouselNavPrev = 5;
+function carouselMove(direction) {
+  if (direction === "next") {
+    carouselNavNewPosition = carouselNavPosition + 1;
+    carouselNavNext = carouselNavNewPosition + 1;
+    carouselNavPrev = carouselNavPosition;
+  } else {
+    carouselNavNewPosition = carouselNavPosition - 1;
+    carouselNavNext = carouselNavPosition;
+    carouselNavPrev = carouselNavNewPosition - 1;
+  }
+
+  carouselNavNewPosition = fixCarouselPosition(carouselNavNewPosition);
+  carouselNavNext = fixCarouselPosition(carouselNavNext);
+  carouselNavPrev = fixCarouselPosition(carouselNavPrev);
+
+  let actualCarouselButton = document.getElementById(
+    "carousel--button-" + carouselNavPosition
+  );
+  let newCarouselButton = document.getElementById(
+    "carousel--button-" + carouselNavNewPosition
+  );
+  let actualSlide = document.getElementById("slide-" + carouselNavPosition);
+  let newSlide = document.getElementById("slide-" + carouselNavNewPosition);
+  let nextSlide = document.getElementById("slide-" + carouselNavNext);
+  let prevSlide = document.getElementById("slide-" + carouselNavPrev);
+  actualCarouselButton.classList.remove("carousel__navigation__button--active");
+  let slides = document.getElementsByClassName("carousel__slide");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("slide--active");
+    slides[i].classList.remove("slide--prev");
+    slides[i].classList.remove("slide--next");
+  }
+  actualSlide.classList.remove("slide--active");
+  prevSlide.classList.add("slide--prev");
+  nextSlide.classList.add("slide--next");
+  newCarouselButton.classList.add("carousel__navigation__button--active");
+  newSlide.classList.add("slide--active");
+  carouselNavPosition = carouselNavNewPosition;
+}
+
+function fixCarouselPosition(pos) {
+  if (pos == 0) {
+    pos = 5;
+  } else if (pos == 6) {
+    pos = 1;
+  } else if (pos == 7) {
+    pos = 2;
+  } else if (pos == -1) {
+    pos = 4;
+  }
+  return pos;
+}
+
+function carouselNav(target) {
+  let actualCarouselButton = document.getElementById(
+    "carousel--button-" + carouselNavPosition
+  );
+  let newCarouselButton = document.getElementById("carousel--button-" + target);
+
+  actualCarouselButton.classList.remove("carousel__navigation__button--active");
+  newCarouselButton.classList.add("carousel__navigation__button--active");
+
+  if (carouselNavPosition < target) {
+    let leftValue = carouselNavPosition - (target - 5);
+    let rightValue = target - carouselNavPosition;
+
+    if (leftValue < rightValue) {
+      for (let i = 1; i <= leftValue; i++) {
+        carouselMove("prev");
+      }
+    } else {
+      for (let i = 1; i <= rightValue; i++) {
+        carouselMove("next");
+      }
+    }
+  } else {
+    let leftValue = carouselNavPosition - target;
+    let rightValue = target - (carouselNavPosition - 5);
+
+    if (leftValue < rightValue) {
+      for (let i = 1; i <= leftValue; i++) {
+        carouselMove("prev");
+      }
+    } else {
+      for (let i = 1; i <= rightValue; i++) {
+        carouselMove("next");
       }
     }
   }
-
- function initCarousel() {
-    setInitialClasses();
-    setEventListeners();  // Set moving to false so that the carousel becomes interactive
-    moving = false;
-  }
-
-  // make it rain
-initCarousel();
-
-document.addEventListener("DOMContentLoaded", function(e) {
-})
-
-function colorCarouselButton(number){
-    let list = document.getElementsByClassName("carousel-nav-button");
-    for(let i = 0; i < list.length; i++){
-        console.log(i);
-        if(list[i].classList.contains("carousel-nav-button-active")){
-            list[i].classList.remove("carousel-nav-button-active");
-        }
-    }
-    list[number].classList.add("carousel-nav-button-active");
+  carouselNavPosition = target;
 }
-
-function moveCarouselFromNavButton(start, end){
-    if(start == end){
-        moveCarouselTo(start);
-    }
-}
-
-
-const buttonGoToTop = document.getElementById("go-to-top-arrow");
-const bg2 = document.getElementById("bg2");
-const bg3 = document.getElementById("bg3");
-const bg4 = document.getElementById("bg4");
-const footer = document.getElementById("footer");
-const sections = document.querySelectorAll(".section");
-console.log(sections);
-const bgOptions = {
-  //threshold: 0.06
-  rootMargin: "-50px"
- 
-};
-
-
-const bgObserver = new IntersectionObserver(function
-  (
-    entries,
-    bgObserver
-  ){
-    entries.forEach(entry => {
-      let sectionIntersected = entry.target.id
-      if (sectionIntersected == "footer"){
-        if(entry.isIntersecting){
-          buttonGoToTop.classList.remove("go-to-top-arrow-alt")
-        }else{
-          buttonGoToTop.classList.add("go-to-top-arrow-alt")
-        }
-      } else if (sectionIntersected == "bg4"){
-        if(entry.isIntersecting){
-          buttonGoToTop.classList.add("go-to-top-arrow-alt")
-        }else{
-          buttonGoToTop.classList.remove("go-to-top-arrow-alt")
-        }
-      } 
-    });  }, bgOptions);
-
-
-sections.forEach(section => {
-  bgObserver.observe(section);
-});
-
-console.log(bgObserver.takeRecords());
-window.onscroll = function() {
-  scrollFunction()
-};
-
-function scrollFunction() {
-  let scrollNormal = document.body.scrollTop;
-  let scrollOther = document.documentElement.scrollTop;
-
-  if (scrollNormal > 20 || scrollOther > 20) {
-    buttonGoToTop.style.display = "block";
-    
-  } else {
-    buttonGoToTop.style.display = "none";
-  }
-}
-
-function goToTop() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-
-} 

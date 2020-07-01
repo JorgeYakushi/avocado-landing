@@ -1,196 +1,226 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Satisfy&display=swap" rel="stylesheet"> 
-  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet"> 
-  <title>Avocado</title>
-  <meta name="description" content="Avocado">
-  <meta name="author" content="SitePoint">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>avocado | concept</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <script src="scripts.js" async></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav__container">
+          <div class="nav__title__group">
+            <h1 class="nav__title">avocado</h1>
+            <div class="nav__button--bars__container" onclick="toggleNavBar()" >
+              <a><span class="nav__button--bars"></span></a>
+            </div>
+          </div>
+          <ul class="nav__button__group nav__button__group--toggled">
+            <div class="nav__title--toggled">
+              <h1 class="nav__title">avocado</h1>
+              <i class="fa fa-times" aria-hidden="true" onclick="toggleNavBar()" ></i>
+            </div>
 
-  <link rel="stylesheet" href="styles.css">
-  <script src="scripts.js" async></script>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <ul class="navbar-menu" id="menuNav">
-        <li id="logo">
-          <a href="#" id="logotext">avocado</a>
-        </li>
-        <li class="menu-item">
-          <a href="#">PRICING</a>
-        </li>
-        <li class="menu-item">
-          <a href="#">BENEFITS</a>
-        </li>
-        <li class="menu-item">
-          <a href="#">NUTRITION</a>
-        </li>
-        <li class="menu-item">
-          <a href="#">BUY NOW</a>
-        </li>
-        <li class="toggle" id="toggleMenuButton">
-          <a href="#" onclick="toggleMenu()"><span class="bars"></span></a>
-        </li>
-        
-      </ul>
-    </div>
-  </nav> 
-</head>
-
-<body>
-
-  <div class="container">
-    <button id="go-to-top-arrow" onClick="goToTop()"></button>
-    <div class="bg1 section">
-      <div class="bg1-container">
-        <h1>Incredibly Nutritious, Wonderfully Delicious</h1>
-        <h2>Fat that is actually good for you</h2>
-        <button class="bg1-order">order some</button>
+            <li class="nav__button"><a href="www">Benefits</a></li>
+            <li class="nav__button"><a href="">Nutrition</a></li>
+            <li class="nav__button"><a href="">Buy Now</a></li>
+            <li class="nav__button"><a href="">Pricing</a></li>
+          </ul>
       </div>
-    </div>
-    <div class="bg2 section" id="bg2">
-      <div class="bg2-container">
-        <div class="bg2-text-container">
-          <h3>Experience the avocado-<i>goodness</i> in multiple ways!</h3>
-        </div>
-        <div class="bg2-info-container">
-          <div class="bg2-info-card" id="info-card-1">
-            <div class="infocard-title-container">
-              <h4>Stuffed Avocado</h4>
-            </div>
-            <div class="infocard-info-container">
-              <h4>Fill your avocado with ingredientes of your choice. Maybe go for some shrimps, tuna or chicken, or even black beans. 
-                You can never go wrong with cheese and vegetables!</h4>
-            </div>
-          </div>
-          <div class="bg2-info-card" id="info-card-2">
-            <div class="infocard-title-container">
-              <h4>Avocado Tacos</h4>
-            </div>
-            <div class="infocard-info-container">
-              <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h4>
-            </div>
-          </div>
-          <div class="bg2-info-card" id="info-card-3">
-            <div class="infocard-title-container">
-              <h4>Avocado Toast</h4>
-            </div>
-            <div class="infocard-info-container">
-              <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h4>
-            </div>
-          </div>
-          <div class="bg2-info-card" id="info-card-4">
-            <div class="infocard-title-container">
-              <h4>California Rolls</h4>
-            </div>
-            <div class="infocard-info-container">
-              <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h4>
-            </div>
-          </div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero__container">
+        <div class="hero__content__container">
+          <!-- <h2 class="hero__container__title">
+            Incredibly Nutritious, Wonderfully Delicious
+          </h2>
+          <h3 class="hero__container__subtitle">
+            Fat that is actually good for you
+          </h3>
+          <a href="" class="hero__container__btn">order some</a> -->
         </div>
       </div>
-    </div>
-    <div class="bg3 section" id="bg3">
-      <div class="bg3-container">
-        <div class="carousel-wrapper">
-          <div class="carousel-title">What others are saying about <span class="carousel-content carousel-quote-emphasis">avocados</span></div>
-          <div class="carousel">
-
-            <div class="carousel__photo initial">
-              <h6 class="carousel-quote">
-                If you have nothing but love for your 
-                <span class="carousel-content carousel-quote-emphasis">
-                  avocados,
-                </span> and you take joy in turning them into <span class="carousel-content carousel-quote-emphasis">guacamole,</span> 
-                all you need is someone to <span class="carousel-content carousel-quote-emphasis">share it with.</span>
-              </h6>
-              <h6 class="carousel-quote-author">
-                - Jason Mraz -
-              </h6>
+    </section>
+    <section class="recipes">
+      <div class="recipes__container">
+        <header class="section-title">
+          <h2>Experience the avocado-goodness in multiple ways!</h2>
+        </header>
+        <div class="card-group">
+          <div class="card card--top" onclick="recipeAccordion(1); event.stopPropagation();" id="card-1">
+            <img src="img/recipe1.png" class=""></img>
+            <div class="card-title">
+              <h3>Stuffed Avocado</h3>
             </div>
-            <div class="carousel__photo">
-              <h6 class="carousel-quote">
-                I love things that are <span class="carousel-content carousel-quote-emphasis">indescribable, </span>
-                like the taste of an <span class="carousel-content carousel-quote-emphasis">avocado</span> or the smell of a gardenia.
-              </h6>
-              <h6 class="carousel-quote-author">
-                - Barbra Streisand -
-              </h6>
+            <div class="card-subtitle">
+              <h4>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </h4>
             </div>
-            <div class="carousel__photo">
-              <h6 class="carousel-quote">
-                What's your <span class="carousel-content carousel-quote-emphasis">avocado?</span>
-              </h6>
-              <h6 class="carousel-quote-author">
-                - Stacie Zinn Roberts -
-              </h6>
+            <div class="card" onclick="recipeAccordion(2); event.stopPropagation();"  id="card-2">
+              <img src="img/recipe2.png" class=""></img>
+              <div class="card-title">
+                <h3>Avocado Tacos</h3>
+              </div>
+              <div class="card-subtitle">
+                <h4>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </h4>
+              </div>
+              <div class="card"  onclick="recipeAccordion(3); event.stopPropagation();" id="card-3">
+                <img src="img/recipe3.png" class=""></img>
+                <div class="card-title"><h3>Avocado Toast</h3></div>
+                <div class="card-subtitle">
+                  <h4>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </h4>
+                </div>
+                <div class="card card--bottom" onclick="recipeAccordion(4); event.stopPropagation();"  id="card-4">
+                  <img src="img/recipe5.png" class=""></img>
+                  <div class="card-title"><h3>California Rolls</h3></div>
+                  <div class="card-subtitle">
+                    <h4>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                      eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </h4>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="carousel__photo">
-              <h6 class="carousel-quote">
-                I suppose there are people who can pass up
-                 <span class="carousel-content carousel-quote-emphasis">
-                  free guacamole,</span> but they're either allergic to 
-                    <span class="carousel-content carousel-quote-emphasis">
-                      avocado
-                    </span> 
-                    or too joyless to live.
-              </h6>
-              <h6 class="carousel-quote-author">- Frank Bruni -</h6>
+          </div>
+          
+          
+          
+        </div>
+      </div>
+    </section>
+    <section class="quotes">
+      <div class="quotes__container">
+        <header class="section-title">
+          <h2>What others are saying about avocados:</h2>
+        </header>
+        <div class="carousel__container">
+          <div class="carousel__slide__group">
+            <div class="carousel__slide slide--active" id="slide-1">
+              <div class="carousel__slide__quote">
+                <h3> If you have nothing but love for your 
+                  <span>
+                    avocados,
+                  </span> and you take joy in turning them into <span>guacamole,</span> 
+                  all you need is someone to <span>share it with.</span></h3>
+              </div>
+              <div class="carousel__slide__author">
+                <h4>- Jason Mraz -</h4>
+              </div>
             </div>
-            <div class="carousel__photo">
-              <h6 class="carousel-quote">
-                And <span class="carousel-content carousel-quote-emphasis">perfect happiness?</span> 
-                Man, that's a... the pool is about 92 degrees, the Jacuzzi is about 102 and an 
-                <span class="carousel-content carousel-quote-emphasis">avocado farm.</span> 
-              </h6>
-              <h6 class="carousel-quote-author">
-                - Jamie Foxx -
-              </h6>
+            <div class="carousel__slide slide--next" id="slide-2">
+              <div class="carousel__slide__quote">
+                <h3>I love things that are <span class="carousel-content carousel-quote-emphasis">indescribable, </span>
+                  like the taste of an <span class="carousel-content carousel-quote-emphasis">avocado</span> or the smell of a gardenia.</h3>
+              </div>
+              <div class="carousel__slide__author">
+                <h4>- Barbra Streisand -</h4>
+              </div>
             </div>
-            <div class="carousel-nav-button-container">
-              <a class="carousel-nav-button carousel-nav-button-active" onclick="colorCarouselButton(0); moveCarouselFromNavButton(0,0);"></a> 
-              <a class="carousel-nav-button" onclick="colorCarouselButton(1); moveCarouselFromNavButton(1,1);"></a> 
-              <a class="carousel-nav-button" onclick="colorCarouselButton(2); moveCarouselFromNavButton(2,2);"></a> 
-              <a class="carousel-nav-button" onclick="colorCarouselButton(3); moveCarouselFromNavButton(3,3);"></a> 
-              <a class="carousel-nav-button" onclick="colorCarouselButton(4); moveCarouselFromNavButton(4,4);"></a> 
+            <div class="carousel__slide" id="slide-3">
+              <div class="carousel__slide__quote">
+                <h3>What's your <span class="carousel-content carousel-quote-emphasis">avocado?</span></h3>
+              </div>
+              <div class="carousel__slide__author">
+                <h4>- Stacie Zinn Roberts -</h4>
+              </div>
             </div>
-            <div class="carousel__button--next"></div>
-            <div class="carousel__button--prev"></div>  
+            <div class="carousel__slide" id="slide-4">
+              <div class="carousel__slide__quote">
+                <h3>I suppose there are people who can pass up
+                  <span class="carousel-content carousel-quote-emphasis">
+                   free guacamole,</span> but they're either allergic to 
+                     <span class="carousel-content carousel-quote-emphasis">
+                       avocado
+                     </span> 
+                     or too joyless to live.</h3>
+              </div>
+              <div class="carousel__slide__author">
+                <h4>- Frank Bruni -</h4>
+              </div>
+            </div>
+            <div class="carousel__slide slide--prev" id="slide-5">
+              <div class="carousel__slide__quote">
+                <h3>And <span class="carousel-content carousel-quote-emphasis">perfect happiness?</span> 
+                  Man, that's a... the pool is about 92 degrees, the Jacuzzi is about 102 and an 
+                  <span class="carousel-content carousel-quote-emphasis">avocado farm.</span> </h3>
+              </div>
+              <div class="carousel__slide__author">
+                <h4>- Jamie Foxx -</h4>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__navigation">
+            <a class="carousel__navigation__button carousel__navigation__button--active" id="carousel--button-1" onclick="carouselNav(1)"><i class="fa fa-circle" aria-hidden="true"></i></a>
+            <a class="carousel__navigation__button" id="carousel--button-2" onclick="carouselNav(2)"><i class="fa fa-circle" aria-hidden="true"></i></a>
+            <a class="carousel__navigation__button" id="carousel--button-3" onclick="carouselNav(3)"><i class="fa fa-circle" aria-hidden="true"></i></a>
+            <a class="carousel__navigation__button" id="carousel--button-4" onclick="carouselNav(4)"><i class="fa fa-circle" aria-hidden="true"></i></a>
+            <a class="carousel__navigation__button" id="carousel--button-5" onclick="carouselNav(5)"><i class="fa fa-circle" aria-hidden="true"></i></a>
+          </div>
+          <div class="carousel__button--prev" onclick="carouselMove('prev')"><i class="fa fa-chevron-left" aria-hidden="true"></i>
+          </div>
+          <div class="carousel__button--next" onclick="carouselMove('next')"><i class="fa fa-chevron-right" aria-hidden="true"></i>
           </div>
         </div>
       </div>
-    </div>
-    <div class="bg4 section" id="bg4"> 
-      <div class="bg4-container">
-        <div class="form-container">
-          <div class="form-text">
-            Join our mailing list to get constant avocado-related news and information:
+    </section>
+    <section class="cta">
+      <div class="cta__container">
+        <div class="cta__form">
+          <header class="section-title">
+            <h2>
+              Join the avocado hype. Get it while its ripe!
+            </h2>
+            
+          </header>
+          <div class="form__title">
+            <h3>
+              Sign up to our mailing list to get constant avocado-related news and
+              information:
+            </h3>
           </div>
-          <form class="form-inputs">
-            <input type="text" class="form-name">
-            <br>
-            <input type="text">
-            <br>
-            <input type="submit">
+          <form action="">
+            <input type="text" placeholder="Name"/>
+            <input type="text" placeholder="Email"/>
+            <input type="submit" value="Sign up"/>
           </form>
         </div>
-        <div class="cta-container">
-          <div class="cta-title">
-            <div>Join the avocado hype. Get it when its ripe!</div>
+        <!-- <div class="cta__video__container">
+          <video class="cta__video__player" src=""></video>
+          <div class="cta__video__content">
+            <div class="cta__video__title">
+              <h3>J</h3>
+            </div>
+            <div class="cta__video__subtitle">
+              <h4>Learn how to cultivate and care for your own avocados!</h4>
+            </div>
+            <div class="cta__video__button"><a href="">start now</a></div>
           </div>
-          <div class="cta-description">Learn how to cultivate and care for your own avocados!</div>
-          <div class="cta-button">
-            <button>START NOW</button>
-          </div>
-        </div>
+        </div> -->
       </div>
-    </div>
-    <footer id="footer" class="section">qweqwe</footer>
-
-
-  </div>
- 
-</body>
-
+    </section>
+    <footer>
+      s
+    </footer>
+  </body>
+</html>
