@@ -166,16 +166,16 @@ nav {
   transition: all 0.33s;
   content: "";
   position: fixed;
-  width: 0;
+  width: 66vw;
   height: 100%;
-  transform: translateX(-100%);
+  transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.5);
   right: 0;
   top: 0;
 }
 .nav__button__group--toggled::after {
   transition: all 0.33s;
-  width: 50vw;
+  width: 100vw;
 }
 .nav__container--open {
   height: 9rem;
@@ -211,9 +211,9 @@ nav {
   background-image: url("../img/bg1-small.png");
   background-repeat: no-repeat;
   background-position: 53.5% 55%;
-  
-  background-attachment: fixed;
- 
+  background-color: var(--color-mask);
+  /* background-attachment: fixed; */
+  background-blend-mode: multiply;
   min-height: 100vh;
 }
 .hero__content__container {
