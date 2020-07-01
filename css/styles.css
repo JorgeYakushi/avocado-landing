@@ -166,9 +166,7 @@ nav {
   transition: all 0.33s;
   content: "";
   position: fixed;
-  width: 75vw;
   height: 100%;
-  transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.5);
   right: 0;
   top: 0;
@@ -176,7 +174,8 @@ nav {
 }
 .nav__button__group--toggled::after {
   transition: all 0.33s;
-  width: 100vw;
+  width: 50vw;
+  transform: translateX(-100%);
 }
 .nav__container--open {
   height: 9rem;
