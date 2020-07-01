@@ -124,62 +124,58 @@ nav {
 }
 .nav__button__group {
   overflow: hidden;
-  width: 0%;
-  list-style: none;
-}
-.nav__button__group--toggled {
-  transition: width 0.33s;
+
   display: flex;
   flex-flow: column nowrap;
   text-decoration: none;
   position: fixed;
   top: 0;
   right: 0;
-  width: 50%;
+  width: 50vw;
   height: 100vh;
   background-color: var(--color-text);
   color: var(--color-primary);
   padding: 1rem 0 0 0;
-  margin: 0 0 0 50%;
+  margin: 0;
   text-align: right;
   box-shadow: -4px 0px 6px -3px #222;
+  list-style: none;
+  transform: translateX(100%);
+  transition: all 0.33s;
+}
+.nav__button__group--toggled {
+  transform: translateX(0%);
+  overflow: visible;
+  transition: all 0.33s;
 }
 .nav__title--toggled {
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;
 }
-.nav__button__group--toggled .fa {
+.nav__button__group .fa {
   padding: 0 1rem 0 0;
   cursor: pointer;
   font-size: 1.5rem;
 }
 
-.nav__button__group--toggled .nav__button {
+.nav__button__group .nav__button {
   padding-top: 2rem;
 }
 .nav__button__group::after {
-  content: "";
-  position: fixed;
-  width: 00%;
-  height: 100%;
-  margin-right: 0%;
-  background: rgba(0, 0, 0, 0.5);
-  right: 0;
-  top: 0;
-  z-index: 0;
-}
-.nav__button__group--toggled::after {
   transition: all 0.33s;
   content: "";
   position: fixed;
-  width: 50%;
+  width: 0;
   height: 100%;
-  margin-right: 50%;
+  transform: translateX(-100%);
   background: rgba(0, 0, 0, 0.5);
   right: 0;
   top: 0;
-  z-index: 0;
+}
+.nav__button__group--toggled::after {
+  transition: all 0.33s;
+  width: 50vw;
 }
 .nav__container--open {
   height: 9rem;
@@ -212,7 +208,7 @@ nav {
 /* hero */
 
 .hero__container {
-  background-image: url("../img/bg1-small.png");
+  background-image: url("/img/bg1-small.png");
   background-repeat: no-repeat;
   background-position: 53.5% 55%;
   background-color: var(--color-mask);
@@ -261,7 +257,7 @@ nav {
 /* recipes */
 
 .recipes__container {
-  background-image: url("../img/bg2-small.png");
+  background-image: url("/img/bg2-small.png");
   background-repeat: no-repeat;
   background-position: 75% 50%;
   height: 100vh;
@@ -332,7 +328,7 @@ nav {
 /* quotes */
 
 .quotes__container {
-  background-image: url("../img/bg3-small.png");
+  background-image: url("/img/bg3-small.png");
   background-repeat: no-repeat;
   background-position: 7.5% 50%;
   background-color: var(--color-text);
@@ -422,7 +418,7 @@ nav {
 }
 
 .cta__container {
-  background-image: url("../img/bg4-small.png");
+  background-image: url("/img/bg4-small.png");
   background-repeat: no-repeat;
   background-position: 50% 70%;
   background-color: var(--color-mask);
