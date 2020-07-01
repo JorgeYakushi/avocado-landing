@@ -208,7 +208,7 @@ nav {
 /* hero */
 
 .hero__container {
-  background-image: url("/img/bg1-small.png");
+  background-image: url("../img/bg1-small.png");
   background-repeat: no-repeat;
   background-position: 53.5% 55%;
   background-color: var(--color-mask);
@@ -257,7 +257,7 @@ nav {
 /* recipes */
 
 .recipes__container {
-  background-image: url("/img/bg2-small.png");
+  background-image: url("../img/bg2-small.png");
   background-repeat: no-repeat;
   background-position: 75% 50%;
   height: 100vh;
@@ -328,7 +328,7 @@ nav {
 /* quotes */
 
 .quotes__container {
-  background-image: url("/img/bg3-small.png");
+  background-image: url("../img/bg3-small.png");
   background-repeat: no-repeat;
   background-position: 7.5% 50%;
   background-color: var(--color-text);
@@ -418,7 +418,7 @@ nav {
 }
 
 .cta__container {
-  background-image: url("/img/bg4-small.png");
+  background-image: url("../img/bg4-small.png");
   background-repeat: no-repeat;
   background-position: 50% 70%;
   background-color: var(--color-mask);
