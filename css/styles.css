@@ -455,6 +455,9 @@ form > input {
   line-height: 2rem;
   border-radius: 5px;
   border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 form > input:last-child {
   font-weight: bold;
