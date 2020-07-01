@@ -1,7 +1,8 @@
 const remInPx = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
-const header = document.getElementsByClassName("nav__container")[0];
+const header = document.getElementsByClassName("nav__title__group")[0];
 const sections = document.querySelectorAll("section");
+const navBarList = document.getElementsByClassName("nav__button__group")[0];
 const navObsMarginTop = "-" + remInPx * 3 + "px 0px 0px 0px";
 
 const navHamburgerBars = document.getElementsByClassName(
@@ -26,10 +27,10 @@ const navObserver = new IntersectionObserver(function (entries, navObserver) {
 navObserver.observe(sections[0]);
 
 function toggleNavBar() {
-  if (header.classList.contains("nav__container--open")) {
-    header.classList.remove("nav__container--open");
+  if (navBarList.classList.contains("nav__button__group--toggled")) {
+    navBarList.classList.remove("nav__button__group--toggled");
   } else {
-    header.classList.add("nav__container--open");
+    navBarList.classList.add("nav__button__group--toggled");
   }
 }
 var counter = 0;
@@ -59,4 +60,101 @@ function recipeAccordion(index) {
   } else if (index == 1) {
     nextCardID.style.top = "16rem";
   }
+}
+
+// carousel
+let carouselNavPosition = 1;
+let carouselNavNewPosition;
+let carouselNavNext = 2;
+let carouselNavPrev = 5;
+function carouselMove(direction) {
+  if (direction === "next") {
+    carouselNavNewPosition = carouselNavPosition + 1;
+    carouselNavNext = carouselNavNewPosition + 1;
+    carouselNavPrev = carouselNavPosition;
+  } else {
+    carouselNavNewPosition = carouselNavPosition - 1;
+    carouselNavNext = carouselNavPosition;
+    carouselNavPrev = carouselNavNewPosition - 1;
+  }
+
+  carouselNavNewPosition = fixCarouselPosition(carouselNavNewPosition);
+  carouselNavNext = fixCarouselPosition(carouselNavNext);
+  carouselNavPrev = fixCarouselPosition(carouselNavPrev);
+
+  let actualCarouselButton = document.getElementById(
+    "carousel--button-" + carouselNavPosition
+  );
+  let newCarouselButton = document.getElementById(
+    "carousel--button-" + carouselNavNewPosition
+  );
+  let actualSlide = document.getElementById("slide-" + carouselNavPosition);
+  let newSlide = document.getElementById("slide-" + carouselNavNewPosition);
+  let nextSlide = document.getElementById("slide-" + carouselNavNext);
+  let prevSlide = document.getElementById("slide-" + carouselNavPrev);
+  actualCarouselButton.classList.remove("carousel__navigation__button--active");
+  let slides = document.getElementsByClassName("carousel__slide");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("slide--active");
+    slides[i].classList.remove("slide--prev");
+    slides[i].classList.remove("slide--next");
+  }
+  actualSlide.classList.remove("slide--active");
+  prevSlide.classList.add("slide--prev");
+  nextSlide.classList.add("slide--next");
+  newCarouselButton.classList.add("carousel__navigation__button--active");
+  newSlide.classList.add("slide--active");
+  carouselNavPosition = carouselNavNewPosition;
+}
+
+function fixCarouselPosition(pos) {
+  if (pos == 0) {
+    pos = 5;
+  } else if (pos == 6) {
+    pos = 1;
+  } else if (pos == 7) {
+    pos = 2;
+  } else if (pos == -1) {
+    pos = 4;
+  }
+  return pos;
+}
+
+function carouselNav(target) {
+  let actualCarouselButton = document.getElementById(
+    "carousel--button-" + carouselNavPosition
+  );
+  let newCarouselButton = document.getElementById("carousel--button-" + target);
+
+  actualCarouselButton.classList.remove("carousel__navigation__button--active");
+  newCarouselButton.classList.add("carousel__navigation__button--active");
+
+  if (carouselNavPosition < target) {
+    let leftValue = carouselNavPosition - (target - 5);
+    let rightValue = target - carouselNavPosition;
+
+    if (leftValue < rightValue) {
+      for (let i = 1; i <= leftValue; i++) {
+        carouselMove("prev");
+      }
+    } else {
+      for (let i = 1; i <= rightValue; i++) {
+        carouselMove("next");
+      }
+    }
+  } else {
+    let leftValue = carouselNavPosition - target;
+    let rightValue = target - (carouselNavPosition - 5);
+
+    if (leftValue < rightValue) {
+      for (let i = 1; i <= leftValue; i++) {
+        carouselMove("prev");
+      }
+    } else {
+      for (let i = 1; i <= rightValue; i++) {
+        carouselMove("next");
+      }
+    }
+  }
+  carouselNavPosition = target;
 }
