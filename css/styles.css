@@ -211,9 +211,9 @@ nav {
   background-image: url("../img/bg1-small.png");
   background-repeat: no-repeat;
   background-position: 53.5% 55%;
-  background-color: var(--color-mask);
+  
   background-attachment: fixed;
-  background-blend-mode: multiply;
+ 
   min-height: 100vh;
 }
 .hero__content__container {
