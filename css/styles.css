@@ -21,6 +21,7 @@
 html {
   font-family: var(--ff-primary);
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -569,7 +570,7 @@ form > input:last-child:hover {
   margin: 0;
   padding-top: 2rem;
 }
-.footer .fa {
+.footer * {
   color: var(--color-primary);
 }
 .footer__container {
@@ -602,6 +603,7 @@ form > input:last-child:hover {
 .footer__personal {
   display: flex;
   padding-top: 2rem;
+  padding-bottom: 2rem;
   align-items: center;
 
   justify-content: space-evenly;

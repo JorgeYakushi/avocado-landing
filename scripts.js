@@ -89,6 +89,11 @@ sectionObserver.observe(sections[1]);
 sectionObserver.observe(sections[4]);
 sectionObserver.observe(sections[3]);
 
+function topFunction() {
+  document.body.scrollTop = 0; // Safari
+  document.documentElement.scrollTop = 0; // Chrome, Firefox, IE and Opera
+}
+
 // recipes
 function restartAccordion() {
   for (let i = 0; i < cards.length; i++) {
