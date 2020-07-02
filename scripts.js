@@ -2,10 +2,11 @@ const remInPx = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
 const header = document.getElementsByClassName("nav__title__group")[0];
 const sections = document.querySelectorAll("section");
+const navContainer = document.getElementsByClassName("nav__container")[0];
 const navBarList = document.getElementsByClassName("nav__button__group")[0];
 const navObsMarginTop = "-" + remInPx * 3 + "px 0px 0px 0px";
 const navObsGoToTop = "-" + remInPx * 2 + "px";
-
+let widthTablet = window.matchMedia("(min-width: 48rem)");
 const navHamburgerBars = document.getElementsByClassName(
   "nav__button--bars"
 )[0];
@@ -16,11 +17,25 @@ const navObsOptions = {
 const navObserver = new IntersectionObserver(function (entries, navObserver) {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) {
-      header.classList.add("nav--scrolled");
-      navHamburgerBars.classList.add("nav__button--bars--scrolled");
+      if (
+        widthTablet.matches &&
+        !navContainer.classList.contains("nav__container--large--scrolled")
+      ) {
+        navContainer.classList.add("nav__container--large--scrolled");
+      } else {
+        header.classList.add("nav--scrolled");
+        navHamburgerBars.classList.add("nav__button--bars--scrolled");
+      }
     } else {
-      header.classList.remove("nav--scrolled");
-      navHamburgerBars.classList.remove("nav__button--bars--scrolled");
+      if (
+        widthTablet.matches &&
+        navContainer.classList.contains("nav__container--large--scrolled")
+      ) {
+        navContainer.classList.remove("nav__container--large--scrolled");
+      } else {
+        header.classList.remove("nav--scrolled");
+        navHamburgerBars.classList.remove("nav__button--bars--scrolled");
+      }
     }
   });
 }, navObsOptions);

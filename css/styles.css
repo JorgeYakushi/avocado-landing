@@ -130,7 +130,6 @@ nav {
 }
 .nav__button__group {
   overflow: hidden;
-
   display: flex;
   flex-flow: column nowrap;
   text-decoration: none;
@@ -606,7 +605,7 @@ form > input:last-child:hover {
   padding-bottom: 2rem;
   align-items: center;
 
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .footer__personal * {
@@ -617,4 +616,89 @@ form > input:last-child:hover {
 
 .footer__personal h6 {
   font-size: 0.9rem;
+}
+
+.footer__personal *:not(:last-child) {
+  padding-right: 1rem;
+}
+
+@media all and (min-width: 30rem) {
+  .card-group {
+    margin-left: 10%;
+  }
+}
+
+@media all and (min-width: 48rem) {
+  .nav__button--bars__container {
+    display: none;
+  }
+  .nav__title__group {
+    width: 20%;
+  }
+
+  .nav__button__group {
+    background: none;
+    box-shadow: none;
+    width: 80%;
+    transform: translateX(0%);
+    height: 4rem;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0;
+    align-items: center;
+  }
+  .nav__button__group .nav__button {
+    padding: 0px;
+    padding-right: 2rem;
+    color: var(--color-text);
+  }
+  .nav__button a::before,
+  .nav__button a::after {
+    background-color: var(--color-text);
+  }
+  .nav__container--large--scrolled {
+    background-color: var(--color-text);
+    box-shadow: 0 4px 6px -3px #222;
+  }
+  .nav__container--large--scrolled a::before,
+  .nav__container--large--scrolled a::after {
+    background-color: var(--color-primary);
+  }
+
+  .nav__container--large--scrolled .nav__button,
+  .nav__container--large--scrolled .nav__title {
+    color: var(--color-primary);
+  }
+
+  .nav__container--large--scrolled .nav__button__group {
+    border: none;
+    box-shadow: none;
+  }
+  .nav__container--large--scrolled * {
+    transition: all 0.5s;
+  }
+
+  .nav__container--scrolled {
+    box-shadow: 0 4px 6px -3px #222;
+  }
+  .nav--scrolled {
+    box-shadow: none;
+  }
+  .nav__title--toggled {
+    display: none;
+  }
+}
+@media all and (min-width: 57rem) {
+  .carousel__button--prev {
+    left: -10%;
+  }
+  .carousel__navigation {
+    left: 50%;
+  }
+}
+
+@media all and (min-width: 57rem) {
+  section > * {
+    background-size: cover;
+  }
 }
