@@ -4,6 +4,7 @@ const header = document.getElementsByClassName("nav__title__group")[0];
 const sections = document.querySelectorAll("section");
 const navBarList = document.getElementsByClassName("nav__button__group")[0];
 const navObsMarginTop = "-" + remInPx * 3 + "px 0px 0px 0px";
+const navObsGoToTop = "-" + remInPx * 2 + "px";
 
 const navHamburgerBars = document.getElementsByClassName(
   "nav__button--bars"
@@ -36,6 +37,59 @@ function toggleNavBar() {
 var counter = 0;
 let cards = document.getElementsByClassName("card");
 
+// nav__top
+const sectionOptions = { rootMargin: navObsGoToTop };
+const navGoToTopArrow = document.getElementsByClassName("fa-angle-up")[0];
+const navGoToTopCont = document.getElementsByClassName("nav__top")[0];
+const sectionObserver = new IntersectionObserver(function (
+  entries,
+  sectionObserver
+) {
+  entries.forEach((entry) => {
+    let sectionIntersected = entry.target.className;
+
+    if (sectionIntersected == "footer") {
+      if (entry.isIntersecting) {
+        navGoToTopArrow.classList.remove("nav__top--alt");
+      } else {
+        navGoToTopArrow.classList.add("nav__top--alt");
+      }
+    } else if (sectionIntersected == "cta") {
+      if (entry.isIntersecting) {
+        navGoToTopArrow.classList.add("nav__top--alt");
+      } else {
+        navGoToTopArrow.classList.remove("nav__top--alt");
+      }
+    }
+    console.log(entry);
+    if (sectionIntersected == "hero") {
+      if (entry.isIntersecting) {
+        heroVisible = true;
+      } else {
+        heroVisible = false;
+      }
+    } else if (sectionIntersected == "recipes") {
+      if (!entry.isIntersecting) {
+        recipesVisible = false;
+        if (heroVisible === true) {
+          navGoToTopCont.classList.remove("nav__top--active");
+        }
+      } else {
+        recipesVisible = true;
+        if (!navGoToTopCont.classList.contains("nav__top--active")) {
+          navGoToTopCont.classList.add("nav__top--active");
+        }
+      }
+    }
+  });
+},
+sectionOptions);
+sectionObserver.observe(sections[0]);
+sectionObserver.observe(sections[1]);
+sectionObserver.observe(sections[4]);
+sectionObserver.observe(sections[3]);
+
+// recipes
 function restartAccordion() {
   for (let i = 0; i < cards.length; i++) {
     if (i == 0) {
